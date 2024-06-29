@@ -1,5 +1,3 @@
-// pages/admin.js
-
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Head from "next/head";
@@ -72,43 +70,85 @@ const Admin = () => {
                   <div>
                     <p>Name: {product.name}</p>
                     <p>Price: {product.price} rupees</p>
-                    {/* <p>Description: {product.description}</p> */}
                   </div>
                 </div>
               ))}
             </div>
             <div className="flex gap-2 mt-2">
-              <button
-                onClick={() => handleStatusChange(order._id, "processing")}
-                className={`btn btn-sm btn-outline ${
-                  order.status === "processing" ? "btn-accent" : ""
-                }`}
-                disabled={order.status === "processing"}
-              >
-                {order.status === "processing"
-                  ? "Processing"
-                  : "Mark as Processing"}
-              </button>
-              <button
-                onClick={() => handleStatusChange(order._id, "shipped")}
-                className={`btn btn-sm btn-outline ${
-                  order.status === "shipped" ? "btn-accent" : ""
-                }`}
-                disabled={order.status === "shipped"}
-              >
-                {order.status === "shipped" ? "Shipped" : "Mark as Shipped"}
-              </button>
-              <button
-                onClick={() => handleStatusChange(order._id, "delivered")}
-                className={`btn btn-sm btn-outline ${
-                  order.status === "delivered" ? "btn-accent" : ""
-                }`}
-                disabled={order.status === "delivered"}
-              >
-                {order.status === "delivered"
-                  ? "Delivered"
-                  : "Mark as Delivered"}
-              </button>
+              {order.status === "pending" && (
+                <>
+                  <button
+                    onClick={() => handleStatusChange(order._id, "accepted")}
+                    className="btn btn-sm btn-outline"
+                  >
+                    Accept
+                  </button>
+                  <button
+                    onClick={() => handleStatusChange(order._id, "rejected")}
+                    className="btn btn-sm btn-outline"
+                  >
+                    Reject
+                  </button>
+                </>
+              )}
+              {order.status === "accepted" && (
+                <>
+                  <button
+                    onClick={() => handleStatusChange(order._id, "processing")}
+                    className="btn btn-sm btn-outline"
+                  >
+                    Mark as Processing
+                  </button>
+                  <button
+                    onClick={() => handleStatusChange(order._id, "shipped")}
+                    className="btn btn-sm btn-outline"
+                  >
+                    Mark as Shipped
+                  </button>
+                  <button
+                    onClick={() => handleStatusChange(order._id, "delivered")}
+                    className="btn btn-sm btn-outline"
+                  >
+                    Mark as Delivered
+                  </button>
+                </>
+              )}
+              {order.status === "rejected" && (
+                <button
+                  onClick={() => handleStatusChange(order._id, "rejected")}
+                  className="btn btn-sm btn-outline"
+                  disabled
+                >
+                  Rejected
+                </button>
+              )}
+              {order.status === "processing" && (
+                <button
+                  onClick={() => handleStatusChange(order._id, "processing")}
+                  className="btn btn-sm btn-outline btn-accent"
+                  disabled
+                >
+                  Processing
+                </button>
+              )}
+              {order.status === "shipped" && (
+                <button
+                  onClick={() => handleStatusChange(order._id, "shipped")}
+                  className="btn btn-sm btn-outline btn-accent"
+                  disabled
+                >
+                  Shipped
+                </button>
+              )}
+              {order.status === "delivered" && (
+                <button
+                  onClick={() => handleStatusChange(order._id, "delivered")}
+                  className="btn btn-sm btn-outline btn-accent"
+                  disabled
+                >
+                  Delivered
+                </button>
+              )}
             </div>
           </div>
         ))}

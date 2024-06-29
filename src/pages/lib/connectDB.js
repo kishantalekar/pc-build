@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
 
 // const DATABASE_URL = process.env.DATABASE_URL;
+
 const DATABASE_URL =
-  "mongodb+srv://kishantalekar123:2dex8aUtA44ESvYA@cluster0.0te3dg9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/pc_build";
+  "mongodb+srv://dheeraj:5VCvNUiJIkjoVIUa@cluster0.0te3dg9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/pc_build";
 
 if (!DATABASE_URL) {
   throw new Error(

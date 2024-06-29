@@ -148,11 +148,11 @@ const Navbar = () => {
                   tabIndex={0}
                   className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
                 >
-                  <li>
+                  {/* <li>
                     <Link href="/profile" className="justify-between">
                       Profile
                     </Link>
-                  </li>
+                  </li> */}
                   <li>
                     <Link href="/order-history" className="justify-between">
                       Order History
@@ -172,7 +172,7 @@ const Navbar = () => {
                 </ul>
               </div>
             ) : (
-              <Link href="/sign-up">
+              <Link href="/pcbuilder">
                 <button className="btn btn-sm btn-success">
                   Create account
                 </button>

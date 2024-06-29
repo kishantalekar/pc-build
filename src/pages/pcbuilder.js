@@ -4,6 +4,7 @@ import Link from "next/link";
 import React from "react";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/router";
+import withAuth from "@/utils/withAuth";
 
 const Pcbuilder = () => {
   const { products } = useAppSelector((state) => state.product);
@@ -85,4 +86,4 @@ const Pcbuilder = () => {
   );
 };
 
-export default Pcbuilder;
+export default withAuth(Pcbuilder);

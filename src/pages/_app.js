@@ -19,19 +19,13 @@ export default function App({ Component, pageProps }) {
     <ClerkProvider
       frontendApi={clerkFrontendApi}
       publishableKey={clerkFrontendApi}
-      navigate={(to) => router.push(to)}
     >
       <DataProvider>
         <Provider store={store}>
           <SessionProvider session={pageProps.session}>
             <Navbar />
             <div>
-              <SignedIn>
-                <Component {...pageProps} />
-              </SignedIn>
-              <SignedOut>
-                <RedirectToSignIn />
-              </SignedOut>
+              <Component {...pageProps} />
               <Toaster />
             </div>
             {/* <Footer /> */}
