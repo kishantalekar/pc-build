@@ -11,6 +11,7 @@ import { DataContext } from "@/store/GlobalState";
 import Cookies from "js-cookie";
 import { ClipLoader, PacmanLoader, ScaleLoader } from "react-spinners";
 import toast from "react-hot-toast";
+
 const LoginPage = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
@@ -94,6 +95,7 @@ const LoginPage = () => {
           <p>Loading...</p>
         </div>
       ) : ( */}
+
       <div
         className=""
         style={{
@@ -101,6 +103,8 @@ const LoginPage = () => {
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
+          //   minHeight: "100vh",
+          //   backgroundImage: `url(https://c4.wallpaperflare.com/wallpaper/406/203/689/pc-build-water-cooling-ram-120mm-fan-hd-wallpaper-preview.jpg)`,
         }}
       >
         <h2
